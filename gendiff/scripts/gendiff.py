@@ -1,6 +1,5 @@
 import argparse
-import json
-from gendiff.difference_calculator.gendiff import generate_diff
+from gendiff.difference_calculator.select_file import file_format_selection
 
 
 def main():
@@ -16,11 +15,9 @@ def main():
     parser.add_argument("-f", "--format", type=str, default="json",
                         help="set format of output")
     args = parser.parse_args()
-    file1 = json.load(open(args.first_file, encoding='utf8'))
-    file2 = json.load(open(args.second_file, encoding='utf8'))
-    result = generate_diff(first_file=file1, second_file=file2)
+    result = file_format_selection(first_path_file=args.first_file,
+                                   second_path_file=args.second_file)
     print(result)
-    return result
 
 
 if __name__ == '__main__':

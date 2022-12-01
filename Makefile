@@ -2,7 +2,7 @@ gendiff-help:
 	poetry run gendiff -h
 
 gendiff:
-	poetry run gendiff $(filepath1) $(filepath2)
+	poetry run gendiff $(first_file) $(second_file)
 
 lint:
 	poetry run flake8 gendiff

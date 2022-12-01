@@ -1,4 +1,6 @@
 test_file.txt
 filepath1.json
 filepath2.json
+filepath1.yaml
+filepath2.yaml
 .pytest_cache
