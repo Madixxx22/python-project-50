@@ -1,36 +1,49 @@
-import json
-import yaml
+from typing import Any
+from gendiff.formatter.formatter import formatting
 
 
-# Functon description the logic of finding difference in flat dicts
-def generate_diff(first_file: dict, second_file: dict) -> dict:
-    res_dict = {}
-    for key, value in first_file.items():
-        if key in second_file and first_file[key] == second_file[key]:
-            res_dict.update({f'    {key}': value})
-        else:
-            res_dict.update({f'  - {key}': value})
-    for key, value in second_file.items():
-        if key in first_file and first_file[key] != second_file[key]:
-            res_dict.update({f'  + {key}': value})
-        elif key not in first_file:
-            res_dict.update({f'  + {key}': value})
+def is_child(data_dict: Any) -> bool:
+    if isinstance(data_dict, dict):
+        return True
+    else:
+        return False
 
-    sort_key = sorted(res_dict, key=lambda x: x[4])
-    return {k: res_dict[k] for k in sort_key}
+
+# Functon description the logic of finding difference
+def gendiff_engine(first_file: dict, second_file: dict) -> dict:
+    def diff(first: dict, second: dict) -> dict:
+        diff_list = []
+        merge_list_keys = sorted(list(first | second))
+        for key in merge_list_keys:
+            if key not in first:
+                diff_list.append({'key': key,
+                                  'new': second[key],
+                                  'status': 'added'})
+            elif key not in second:
+                diff_list.append({'key': key,
+                                  'old': first[key],
+                                  'status': 'delete'})
+            elif is_child(first[key]) and is_child(second[key]):
+                child = diff(first[key], second[key])
+                diff_list.append({'key': key,
+                                  'status': 'nested',
+                                  'children': child})
+            elif first[key] == second[key]:
+                diff_list.append({'key': key,
+                                  'value': first[key],
+                                  'status': "unchanged"})
+            elif first[key] != second[key]:
+                diff_list.append({"key": key,
+                                  'old': first[key],
+                                  'new': second[key],
+                                  'status': "changed"})
+        return diff_list
+    res = diff(first=first_file, second=second_file)
+    return dict(type='root', children=res)
 
 
 # Function description the logic of finding difference in flat json files
-def generate_diff_json(first_file: dict, second_file: dict) -> str:
-    result = generate_diff(first_file, second_file)
-    return json.dumps(result, indent=0).replace('"', '').replace(',', '')
-
-
-# Functon description the logic of finding difference in flat yaml files
-def generate_diff_yml(first_file: dict, second_file: dict) -> str:
-    result = generate_diff(first_file, second_file)
-    if result != {}:
-        res = yaml.safe_dump(result, sort_keys=False).replace('"', '')
-        return '{\n' + res.replace(',', '').replace('\'', '') + '}'
-    else:
-        return f'{result}'
+def generate_diff(first_file: dict, second_file: dict, format: str) -> str:
+    data_diff = gendiff_engine(first_file, second_file)
+    result = formatting(data_diff, format)
+    return result
