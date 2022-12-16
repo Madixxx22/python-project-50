@@ -23,3 +23,9 @@ jobs:
       - name: Start linter and tests
         run: |
           make check
+      - name: Test and publish code coverage
+        uses: paambaati/codeclimate-action@v3.2.0
+        if: github.ref_name == 'main'
+        with:
+        coverageCommannd: make test-coverage
+        debug: true

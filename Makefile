@@ -11,7 +11,7 @@ test:
 	poetry run pytest
 
 make coverage:
-	poetry run pytest --cov=gendiff
+	poetry run pytest --cov=gendiff --cov-report xml
 
 make check: lint test coverage
 
