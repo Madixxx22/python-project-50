@@ -4,3 +4,6 @@ filepath2.json
 filepath1.yaml
 filepath2.yaml
 .pytest_cache
+secrets
+coverage.xml
+.coverage
