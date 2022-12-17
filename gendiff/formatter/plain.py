@@ -8,7 +8,7 @@ def form(value: Any) -> str:
         return str(value).lower()
     elif value is None:
         return 'null'
-    return f"'{str(value)}'"
+    return f"{str(value)}"
 
 
 def get_child(item: Any) -> Any:
