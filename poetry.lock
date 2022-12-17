@@ -55,16 +55,16 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "flake8"
-version = "6.0.0"
+version = "5.0.4"
 description = "the modular source code checker: pep8 pyflakes and co"
 category = "main"
 optional = false
-python-versions = ">=3.8.1"
+python-versions = ">=3.6.1"
 
 [package.dependencies]
 mccabe = ">=0.7.0,<0.8.0"
-pycodestyle = ">=2.10.0,<2.11.0"
-pyflakes = ">=3.0.0,<3.1.0"
+pycodestyle = ">=2.9.0,<2.10.0"
+pyflakes = ">=2.5.0,<2.6.0"
 
 [[package]]
 name = "iniconfig"
@@ -84,14 +84,11 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "packaging"
-version = "21.3"
+version = "22.0"
 description = "Core utilities for Python packages"
 category = "main"
 optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
+python-versions = ">=3.7"
 
 [[package]]
 name = "pluggy"
@@ -107,7 +104,7 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "pycodestyle"
-version = "2.10.0"
+version = "2.9.1"
 description = "Python style guide checker"
 category = "main"
 optional = false
@@ -115,22 +112,11 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "pyflakes"
-version = "3.0.1"
+version = "2.5.0"
 description = "passive checker of Python programs"
 category = "main"
 optional = false
 python-versions = ">=3.6"
-
-[[package]]
-name = "pyparsing"
-version = "3.0.9"
-description = "pyparsing module - Classes and methods to define and execute parsing grammars"
-category = "main"
-optional = false
-python-versions = ">=3.6.8"
-
-[package.extras]
-diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
 name = "pytest"
@@ -186,7 +172,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "1761959cd5fcddefd55638870c1fda025c6747116ac7f54411c27bcc6e8687d2"
+content-hash = "8e0335b2a79453a95dec839ba9ce5aa4de252798fe1bbfff9341a502a1c0c7df"
 
 [metadata.files]
 argparse = []
@@ -201,7 +187,6 @@ packaging = []
 pluggy = []
 pycodestyle = []
 pyflakes = []
-pyparsing = []
 pytest = []
 pytest-cov = []
 pyyaml = []
