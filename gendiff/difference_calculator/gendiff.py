@@ -43,7 +43,8 @@ def gendiff_engine(first_file: dict, second_file: dict) -> dict:
 
 
 # Function description the logic of finding difference in flat json files
-def generate_diff(first_file: dict, second_file: dict, format: str) -> str:
+def generate_diff(first_file: dict, second_file: dict,
+                  format: str = "stylish") -> str:
     data_diff = gendiff_engine(first_file, second_file)
     result = formatting(data_diff=data_diff, format=format)
     return result
