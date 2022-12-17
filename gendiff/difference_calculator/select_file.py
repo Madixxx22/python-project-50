@@ -5,7 +5,7 @@ from gendiff.difference_calculator.gendiff import generate_diff
 
 def format_select(first_path_file: str,
                   second_path_file: str,
-                  format: str) -> str:
+                  format: str = "stylish") -> str:
     format_f = first_path_file.split('.')[1]
     format_s = second_path_file.split('.')[1]
     with open(first_path_file, encoding='utf8') as ff:
