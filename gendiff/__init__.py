@@ -1,3 +1,3 @@
-from .difference_calculator.gendiff import generate_diff
+from .difference_calculator.select_file import format_select as generate_diff
 
 __all__ = ('generate_diff',)

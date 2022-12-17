@@ -3,9 +3,9 @@ import yaml
 from gendiff.difference_calculator.gendiff import generate_diff
 
 
-def file_format_selection(first_path_file: str,
-                          second_path_file: str,
-                          format: str) -> str:
+def format_select(first_path_file: str,
+                  second_path_file: str,
+                  format: str) -> str:
     format_f = first_path_file.split('.')[1]
     format_s = second_path_file.split('.')[1]
     with open(first_path_file, encoding='utf8') as ff:
