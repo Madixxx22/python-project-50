@@ -7,3 +7,6 @@ filepath2.yaml
 secrets
 coverage.xml
 .coverage
+.vscode
+dist
+.venv

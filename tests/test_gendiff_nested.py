@@ -1,4 +1,3 @@
-import pytest
 from tests.fixtures import *
 from gendiff.difference_calculator.gendiff import generate_diff
 

@@ -11,7 +11,7 @@ def is_child(data_dict: Any) -> bool:
 
 # Functon description the logic of finding difference
 def gendiff_engine(first_file: dict, second_file: dict) -> dict:
-    def diff(first: dict, second: dict) -> dict:
+    def diff(first: dict, second: dict) -> list:
         diff_list = []
         merge_list_keys = sorted(list(first | second))
         for key in merge_list_keys:
@@ -45,5 +45,5 @@ def gendiff_engine(first_file: dict, second_file: dict) -> dict:
 # Function description the logic of finding difference in flat json files
 def generate_diff(first_file: dict, second_file: dict, format: str) -> str:
     data_diff = gendiff_engine(first_file, second_file)
-    result = formatting(data_diff, format)
+    result = formatting(data_diff=data_diff, format=format)
     return result

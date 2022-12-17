@@ -25,3 +25,4 @@ def file_format_selection(first_path_file: str,
             elif format_f not in ("json", "yaml", "yml") or \
                     format_s not in ("json", "yaml", "yml"):
                 raise ValueError(f"{format_f} - format not supported")
+            return ""
