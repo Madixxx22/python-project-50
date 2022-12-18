@@ -10,8 +10,8 @@ def data_good_case():
   - timeout: 50
   + timeout: 20
   + verbose: true\n}''',
-           'file1': { # noqa: E126 E121 E261 pylint: disable=unused-variable
-                "host": "hexlet.io",
+           'file1': {
+                "host": "hexlet.io", # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                 "timeout": 50,
                 "proxy": "123.234.53.22",
                 "follow": False
@@ -49,8 +49,8 @@ def data_full_case():
 
 @pytest.fixture
 def data_negative_case():
-    res = {'file1': { # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
-                "host": "hexlet.io",
+    res = {'file1': {
+                "host": "hexlet.io", # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                 "timeout": 50,
                 "proxy": "123.234.53.22",
                 "follow": False
