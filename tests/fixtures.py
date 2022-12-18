@@ -10,17 +10,17 @@ def data_good_case():
   - timeout: 50
   + timeout: 20
   + verbose: true\n}''',
-           'file1': {
+           'file1': { # noqa: E126 E121 E261 pylint: disable=unused-variable
                 "host": "hexlet.io",
                 "timeout": 50,
                 "proxy": "123.234.53.22",
                 "follow": False
-            },
+            }, # noqa: E126 E121 E261 pylint: disable=unused-variable
            'file2': {
-                "timeout": 20,
+                "timeout": 20, # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                 "verbose": True,
                 "host": "hexlet.io"
-            }
+            } # noqa: E126 E121 E261 pylint: disable=unused-variable
            }
     return res
 
@@ -28,17 +28,17 @@ def data_good_case():
 @pytest.fixture
 def data_full_case():
     res = {'file1': {
-            "host": "hexlet.io",
-            "timeout": 50,
-            "proxy": "123.234.53.22",
-            "follow": False
-        },
-           'file2': {
-                "host": "hexlet.io",
+                "host": "hexlet.io", # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                 "timeout": 50,
                 "proxy": "123.234.53.22",
                 "follow": False
-            },
+           }, # noqa: E126 E121 E261 pylint: disable=unused-variable
+           'file2': { # noqa: E126 E121 E261 pylint: disable=unused-variable
+                "host": "hexlet.io", # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
+                "timeout": 50,
+                "proxy": "123.234.53.22",
+                "follow": False
+            }, # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
            'res': '''{
     follow: false
     host: hexlet.io
@@ -49,18 +49,18 @@ def data_full_case():
 
 @pytest.fixture
 def data_negative_case():
-    res = {'file1': {
+    res = {'file1': { # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                 "host": "hexlet.io",
                 "timeout": 50,
                 "proxy": "123.234.53.22",
                 "follow": False
-            },
+            }, # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
            'file2': {
-                "host": "hexlet.com",
+                "host": "hexlet.com", # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                 "timeout": 228,
                 "proxy": "192.168.13.37",
                 "follow": True
-            },
+            }, # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
            'res': '''{
   - follow: false
   + follow: true
@@ -121,7 +121,7 @@ def data_good_case_nested():
     }
 }''',
            'file1': {
-                "common": {
+                "common": { # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                     "setting1": "Value 1",
                     "setting2": 200,
                     "setting3": True,
@@ -145,9 +145,9 @@ def data_good_case_nested():
                         "id": 45
                     }
                 }
-            },
+            }, # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
            'file2': {
-                "common": {
+                "common": { # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                     "follow": False,
                     "setting1": "Value 1",
                     "setting3": None,
@@ -176,7 +176,7 @@ def data_good_case_nested():
                     },
                     "fee": 100500
                 }
-            }
+            } # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
            }
 
     return res
@@ -197,7 +197,7 @@ Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]''',
            'file1': {
-                "common": {
+                "common": { # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                     "setting1": "Value 1",
                     "setting2": 200,
                     "setting3": True,
@@ -221,9 +221,9 @@ Property 'group3' was added with value: [complex value]''',
                         "id": 45
                     }
                 }
-            },
+            }, # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
            'file2': {
-                "common": {
+                "common": { # noqa: E126 E121 E261 E501 pylint: disable=unused-variable
                     "follow": False,
                     "setting1": "Value 1",
                     "setting3": None,
