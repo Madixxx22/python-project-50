@@ -11,15 +11,15 @@ def data_good_case():
   + timeout: 20
   + verbose: true\n}''',
            'file1': {
-             "host": "hexlet.io",
-             "timeout": 50,
-             "proxy": "123.234.53.22",
-             "follow": False
-                   },
-             'file2': {
-               "timeout": 20,
-               "verbose": True,
-               "host": "hexlet.io"
+                "host": "hexlet.io",
+                "timeout": 50,
+                "proxy": "123.234.53.22",
+                "follow": False
+            },
+           'file2': {
+                "timeout": 20,
+                "verbose": True,
+                "host": "hexlet.io"
             }
            }
     return res
@@ -28,17 +28,17 @@ def data_good_case():
 @pytest.fixture
 def data_full_case():
     res = {'file1': {
-      "host": "hexlet.io",
-      "timeout": 50,
-      "proxy": "123.234.53.22",
-      "follow": False
-    },
+            "host": "hexlet.io",
+            "timeout": 50,
+            "proxy": "123.234.53.22",
+            "follow": False
+        },
            'file2': {
-             "host": "hexlet.io",
-             "timeout": 50,
-             "proxy": "123.234.53.22",
-             "follow": False
-          },
+                "host": "hexlet.io",
+                "timeout": 50,
+                "proxy": "123.234.53.22",
+                "follow": False
+            },
            'res': '''{
     follow: false
     host: hexlet.io
@@ -50,16 +50,16 @@ def data_full_case():
 @pytest.fixture
 def data_negative_case():
     res = {'file1': {
-      "host": "hexlet.io",
-      "timeout": 50,
-      "proxy": "123.234.53.22",
-      "follow": False
-    },
+                "host": "hexlet.io",
+                "timeout": 50,
+                "proxy": "123.234.53.22",
+                "follow": False
+            },
            'file2': {
-             "host": "hexlet.com",
-             "timeout": 228,
-             "proxy": "192.168.13.37",
-             "follow": True
+                "host": "hexlet.com",
+                "timeout": 228,
+                "proxy": "192.168.13.37",
+                "follow": True
             },
            'res': '''{
   - follow: false
@@ -121,62 +121,62 @@ def data_good_case_nested():
     }
 }''',
            'file1': {
-            "common": {
-              "setting1": "Value 1",
-              "setting2": 200,
-              "setting3": True,
-              "setting6": {
-                "key": "value",
-                "doge": {
-                  "wow": "b"
+                "common": {
+                    "setting1": "Value 1",
+                    "setting2": 200,
+                    "setting3": True,
+                    "setting6": {
+                        "key": "value",
+                        "doge": {
+                            "wow": "b"
+                        }
+                    }
+                },
+                "group1": {
+                    "baz": "bas",
+                    "foo": "bar",
+                    "nest": {
+                        "key": "value"
+                    }
+                },
+                "group2": {
+                    "abc": 12345,
+                    "deep": {
+                        "id": 45
+                    }
                 }
-              }
             },
-            "group1": {
-             "baz": "bas",
-             "foo": "bar",
-             "nest": {
-               "key": "value"
-             }
-            },
-            "group2": {
-               "abc": 12345,
-               "deep": {
-                 "id": 45
-               }
-             }
-           },
            'file2': {
-             "common": {
-               "follow": False,
-               "setting1": "Value 1",
-               "setting3": None,
-               "setting4": "blah blah",
-               "setting5": {
-                 "key5": "value5"
-               },
-               "setting6": {
-                 "key": "value",
-                 "ops": "vops",
-                 "doge": {
-                   "wow": "so much"
-                 }
-               }
-             },
-             "group1": {
-               "foo": "bar",
-               "baz": "bars",
-               "nest": "str"
-             },
-             "group3": {
-               "deep": {
-                 "id": {
-                   "number": 45
-                 }
-               },
-               "fee": 100500
-             }
-           }
+                "common": {
+                    "follow": False,
+                    "setting1": "Value 1",
+                    "setting3": None,
+                    "setting4": "blah blah",
+                    "setting5": {
+                        "key5": "value5"
+                    },
+                    "setting6": {
+                        "key": "value",
+                        "ops": "vops",
+                        "doge": {
+                            "wow": "so much"
+                        }
+                    }
+                },
+                "group1": {
+                    "foo": "bar",
+                    "baz": "bars",
+                    "nest": "str"
+                },
+                "group3": {
+                    "deep": {
+                        "id": {
+                            "number": 45
+                        }
+                    },
+                    "fee": 100500
+                }
+            }
            }
 
     return res
@@ -197,61 +197,61 @@ Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]''',
            'file1': {
-             "common": {
-               "setting1": "Value 1",
-               "setting2": 200,
-               "setting3": True,
-               "setting6": {
-                 "key": "value",
-                 "doge": {
-                   "wow": ""
-                 }
-               }
-             },
-             "group1": {
-               "baz": "bas",
-               "foo": "bar",
-               "nest": {
-                 "key": "value"
-               }
-             },
-             "group2": {
-               "abc": 12345,
-               "deep": {
-                 "id": 45
-               }
-             }
-           },
+                "common": {
+                    "setting1": "Value 1",
+                    "setting2": 200,
+                    "setting3": True,
+                    "setting6": {
+                        "key": "value",
+                        "doge": {
+                            "wow": ""
+                        }
+                    }
+                },
+                "group1": {
+                    "baz": "bas",
+                    "foo": "bar",
+                    "nest": {
+                        "key": "value"
+                    }
+                },
+                "group2": {
+                    "abc": 12345,
+                    "deep": {
+                        "id": 45
+                    }
+                }
+            },
            'file2': {
-             "common": {
-               "follow": False,
-               "setting1": "Value 1",
-               "setting3": None,
-               "setting4": "blah blah",
-               "setting5": {
-                 "key5": "value5"
-               },
-               "setting6": {
-                 "key": "value",
-                 "ops": "vops",
-                 "doge": {
-                   "wow": "so much"
-                 }
-               }
-             },
-             "group1": {
-               "foo": "bar",
-               "baz": "bars",
-               "nest": "str"
-             },
-             "group3": {
-               "deep": {
-                 "id": {
-                   "number": 45
-                 }
-               },
-               "fee": 100500
-             }
+                "common": {
+                    "follow": False,
+                    "setting1": "Value 1",
+                    "setting3": None,
+                    "setting4": "blah blah",
+                    "setting5": {
+                        "key5": "value5"
+                    },
+                    "setting6": {
+                        "key": "value",
+                        "ops": "vops",
+                        "doge": {
+                            "wow": "so much"
+                        }
+                    }
+                },
+                "group1": {
+                    "foo": "bar",
+                    "baz": "bars",
+                    "nest": "str"
+                },
+                "group3": {
+                    "deep": {
+                        "id": {
+                            "number": 45
+                        }
+                    },
+                    "fee": 100500
+                }
            }
            }
     return res
